@@ -1,0 +1,14 @@
+[
+    {
+        "list_of_strings": ["test_1","test_2"],
+        "boolean_field": true,
+        "integer_field": 3,
+        "fload_field": 1.2
+    },
+    {
+        "list_of_strings": ["test_3","test_4"],
+        "boolean_field": false,
+        "integer_field": 4,
+        "fload_field": 5.7
+    }
+]

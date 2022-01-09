@@ -1,0 +1,17 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build","-t","eu.gcr.io/project-name/api-boilerplate:$SHORT_SHA",
+          "-t","eu.gcr.io/project-name/api-boilerplate:latest","."]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "eu.gcr.io/project-name/api-boilerplate:$SHORT_SHA"]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "eu.gcr.io/project-name/api-boilerplate:latest"]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+      gcloud components install kubectl
+      gcloud container clusters get-credentials gke-cluster-name --zone cluster-zone
+      kubectl apply -f k8s
+      kubectl set image deployments/api-deployment api-server="eu.gcr.io/project-name/api-boilerplate:$SHORT_SHA"
