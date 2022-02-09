@@ -29,7 +29,7 @@ There are numerous `WSGI` servers,In this boilerplate project, I used `Gunicorn`
 
 - The `Deployment` Will manage pods that runs the docker container
 - The `ClusterIP Service` Will provide access to the pods inside of the deployment
-- `Nginx Ingress Service` Will expose our `ClusterIP Service`, more on this can be found [here](https://github.com/kubernetes/ingress-nginx).
+- `Nginx Ingress Service` Will expose our `ClusterIP Service` (more on this can be found [here](https://github.com/kubernetes/ingress-nginx))
 
 ## 3. CI/CD with `cloudbuild.yaml` file:
 
